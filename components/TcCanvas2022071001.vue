@@ -53,7 +53,7 @@ export default {
                             .start()
     },
     position() {
-      let h = window.innerHeight
+      let h = 1920
       let y = this.y
       return {
         page: Math.floor(y / h),
@@ -140,8 +140,5 @@ export default {
 <style scoped lang="scss">
 .tc-canvas-container {
   width: 100%;
-  canvas {
-    width: 100%;
-  }
 }
 </style>
