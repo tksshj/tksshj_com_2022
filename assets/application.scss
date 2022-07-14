@@ -31,6 +31,9 @@ a {
   color: $tc-text-color;
   text-decoration: none;
 }
+img, canvas {
+  vertical-align: top;
+}
 input {
   &:focus,
   &:active {
