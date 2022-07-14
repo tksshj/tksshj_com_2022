@@ -39,6 +39,9 @@ export default {
     },
     startButtonClicked() {
       this.$refs.tcRecorder.startRecording(this.$refs.tcCanvas.canvas, '2022-07-14-02.webm')
+      setTimeout(() => {
+        this.$refs.tcCanvas.started = true
+      }, 1000)
     },
     stopButtonClicked() {
       this.$refs.tcRecorder.stopRecording()

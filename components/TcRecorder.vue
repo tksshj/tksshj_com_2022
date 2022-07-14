@@ -1,6 +1,6 @@
 <template>
   <div class="tc-recorder">
-    {{ duration }}
+    <p v-if="recorder">{{ duration }} ms</p>
     <TcButton v-if="!recorder" icon="play_circle" @click="$emit('start-button-clicked')">REC</TcButton>
     <TcButton v-if="recorder" icon="stop_circle" @click="$emit('stop-button-clicked')">STOP</TcButton>
   </div>
@@ -23,6 +23,7 @@ export default {
       let stream = canvas.captureStream()
       this.recorder = new MediaRecorder(stream, { mimeType: 'video/webm;codecs=h264' })
 
+      let _this = this
       this.recorder.ondataavailable = function(e) {
         let blob = new Blob([e.data], { type: e.data.type });
         let url  = (window.URL || window.webkitURL).createObjectURL(blob)
@@ -34,7 +35,7 @@ export default {
         (window.URL || window.webkitURL).revokeObjectURL(url)
         document.body.removeChild(link)
 
-        this.recorder = null
+        _this.recorder = null
       }
       this.recorder.start()
       this.startedAt = Date.now()
@@ -42,7 +43,7 @@ export default {
         if (this.startedAt) {
           this.duration = Date.now() - this.startedAt
         }
-      }, 200)
+      }, 100)
     },
     stopRecording() {
       console.log('stopRecording')
@@ -61,5 +62,8 @@ export default {
 .tc-recorder {
   display: flex;
   align-items: center;
+  p {
+    margin: 0 16px;
+  }
 }
 </style>

@@ -10,17 +10,9 @@ export default {
     return {
       p5: null,
       canvas: null,
-
-
       x: 0,
       y: 0,
-      direction: true,
-
-      colW: 0,
-      rowH: 0,
-      maxR: 0,
-
-      started: true,
+      direction: true
     }
   },
   methods: {
@@ -40,12 +32,9 @@ export default {
       this.canvas.style.width = '100%'
       this.canvas.style.height = '100%'
       this.p5.background(255)
-
-      /* this.p5.frameRate(10) */
     },
     draw() {
       this.p5.push()
-      /* this.p5.rotate(90 * Math.PI / 180) */
       this.p5.translate(-this.p5.width * 0.5, 0)
 
       if (this.direction) {
@@ -62,19 +51,14 @@ export default {
         }
       }
 
-
-
       this.p5.strokeWeight(0)
-      /* this.p5.point(this.x, this.y) */
-
       this.p5.fill(100 + this.p5.random(156), 100 + this.p5.random(30), 100 + this.p5.random(128))
 
       this.p5.ellipse(this.x + this.p5.random(16), this.y + this.p5.random(16), 256 + this.p5.random(128), 128 + this.p5.random(128))
-
       this.p5.pop()
     },
     windowResized() {
-      this.p5.resizeCanvas(this.p5.windowWidth, this.p5.windowHeight)
+      this.p5.resizeCanvas(1080, 1920)
       this.canvas.style.width = '100%'
       this.canvas.style.height = '100%'
     }
