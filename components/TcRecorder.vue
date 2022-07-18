@@ -18,7 +18,6 @@ export default {
   },
   methods: {
     startRecording(canvas, filename) {
-      console.log('startRecording')
       let context = canvas.getContext('2d')
       let stream = canvas.captureStream()
       this.recorder = new MediaRecorder(stream, { mimeType: 'video/webm;codecs=h264' })
@@ -46,7 +45,6 @@ export default {
       }, 100)
     },
     stopRecording() {
-      console.log('stopRecording')
       if (this.recorder) {
         this.recorder.stop()
       }

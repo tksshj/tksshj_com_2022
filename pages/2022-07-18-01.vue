@@ -2,7 +2,7 @@
   <div class="tc-page">
     <div class="tc-page-content" :style="contentStyle">
       <TcHeader>
-        <h1>2022-07-14-03</h1>
+        <h1>2022-07-18-01</h1>
         <TcRecorder ref="tcRecorder" @start-button-clicked="startButtonClicked" @stop-button-clicked="stopButtonClicked" />
       </TcHeader>
       <main>
@@ -14,7 +14,7 @@
 
 <script>
 import VertexShader from 'raw-loader!../components/common.vert'
-import FragmentShader from 'raw-loader!../components/2022071403.frag'
+import FragmentShader from 'raw-loader!../components/2022071801.frag'
 
 export default {
   data() {
@@ -43,7 +43,7 @@ export default {
       this.h = window.innerHeight
     },
     startButtonClicked() {
-      this.$refs.tcRecorder.startRecording(this.$refs.tcCanvas.canvas, '2022-07-14-03.webm')
+      this.$refs.tcRecorder.startRecording(this.$refs.tcCanvas.canvas, '2022-07-18-01.webm')
       setTimeout(() => {
         this.$refs.tcCanvas.started = true
       }, 1000)
