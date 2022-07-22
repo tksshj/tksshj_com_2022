@@ -8,6 +8,7 @@ uniform float u_time;
 
 vec2 random2( vec2 p ) {
   return fract(sin(vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3))))*43758.5453);
+  /* return p; //fract(sin(vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3))))*43758.5453); */
 }
 
 void main() {
@@ -50,13 +51,13 @@ void main() {
   color += m_dist;
 
   // Draw cell center
-  color += 1.-step(.02, m_dist);
+  color += 1. - step(.02, m_dist);
 
   // Draw grid
   color.r += step(.98, f_st.x) + step(.98, f_st.y);
 
   // Show isolines
-  // color -= step(.7,abs(sin(27.0*m_dist)))*.5;
+  color -= step(.7,abs(sin(27.0*m_dist)))*.5;
 
   gl_FragColor = vec4(color,1.0);
 }
